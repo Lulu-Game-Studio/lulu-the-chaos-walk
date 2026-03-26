@@ -119,4 +119,3 @@ To create a simple and fun game in Godot that demonstrates:
 ## 16. Resources
 
 - **Character assets:** Provided by Rubén
-

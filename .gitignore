@@ -1,0 +1,28 @@
+# Godot 4+
+.godot/
+.import/
+.export/
+/android/
+
+# Export
+export.cfg
+export_credentials.cfg
+.export_presets.cfg
+
+# Mono (C#)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Translations
+*.translation
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Temporales
+*.tmp
+*.log
+.nomedia
+

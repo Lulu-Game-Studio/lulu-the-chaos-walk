@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cearm0vur0h6m"]
+
+[ext_resource type="PackedScene" uid="uid://ulnay14bafeq" path="res://map/map.tscn" id="1_71h1p"]
+[ext_resource type="PackedScene" uid="uid://cfrofnl6fqyol" path="res://player/lulu.tscn" id="2_23hpu"]
+
+[node name="Game" type="Node2D" unique_id=1754687190]
+
+[node name="map" parent="." unique_id=2100387049 instance=ExtResource("1_71h1p")]
+
+[node name="Lulu" parent="." unique_id=160753840 instance=ExtResource("2_23hpu")]
+position = Vector2(665, 365)
