@@ -1,15 +1,9 @@
 extends CharacterBody2D
 
-# -------------------------
-# CONSTANTES DE MOVIMIENTO
-# -------------------------
 const SPEED = 150
 const RUN_SPEED = 250
 const JUMP_FORCE = -300
 
-# -------------------------
-# ESTADOS
-# -------------------------
 var is_sitting = false
 var is_transitioning = false
 var facing_right = true
@@ -18,54 +12,46 @@ var facing_right = true
 
 func _physics_process(delta):
 
-	# -------------------------
-	# DETECTAR DIRECCIÓN
-	# -------------------------
+	# DETECT DIRECTION
 	var direction = 0
 	if Input.is_action_pressed("Walk_right"):
 		direction += 1
 	if Input.is_action_pressed("Walk_left"):
 		direction -= 1
 
-	# Guardamos hacia dónde mira
+	# Store which way the character is facing
 	if direction != 0:
 		facing_right = direction > 0
 
-	# -------------------------
-	# SENTARSE / LEVANTARSE
-	# -------------------------
+	# SIT / STAND UP
 	if Input.is_action_just_pressed("Sit") and is_on_floor() and not is_transitioning:
 		is_transitioning = true
 		if is_sitting:
-			sprite.play_backwards("sit")  # levantarse
+			sprite.play_backwards("sit")
 		else:
-			sprite.play("sit")            # sentarse
+			sprite.play("sit")  
 
-	# Si está sentado, mover o saltar lo levanta automáticamente
+	# If sitting, moving or jumping automatically stands up
 	if is_sitting and not is_transitioning:
 		if direction != 0 or Input.is_action_pressed("Run") or Input.is_action_just_pressed("Jump"):
 			is_transitioning = true
 			sprite.play_backwards("sit")
 
-	# -------------------------
-	# BLOQUEAR MOVIMIENTO SI ESTÁ SENTADO O EN TRANSICIÓN
-	# -------------------------
+	# BLOCK MOVEMENT IF SITTING OR IN TRANSITION
 	if is_sitting or is_transitioning:
 		velocity.x = 0
 		move_and_slide()
-		# Mantener animación y dirección correcta
+		# Keep correct animation and facing direction
 		if sprite.animation != "sit":
 			sprite.play("sit")
 		sprite.flip_h = not facing_right
-		# Revisar si terminó la animación
+		# Check if animation finished
 		if is_transitioning and not sprite.is_playing():
 			is_transitioning = false
 			is_sitting = not is_sitting
 		return
 
-	# -------------------------
-	# MOVIMIENTO NORMAL
-	# -------------------------
+	# NORMAL MOVEMENT
 	var is_running = Input.is_action_pressed("Run")
 	var current_speed = SPEED
 	if is_running:
@@ -73,19 +59,17 @@ func _physics_process(delta):
 
 	velocity.x = direction * current_speed
 
-	# Gravedad
+	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Salto
+	# Jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_FORCE
 
 	move_and_slide()
 
-	# -------------------------
-	# ANIMACIONES PRINCIPALES
-	# -------------------------
+	# MAIN ANIMATIONS
 	update_animation(direction, is_running)
 
 func update_animation(direction, is_running):
@@ -98,5 +82,5 @@ func update_animation(direction, is_running):
 	else:
 		sprite.play("idle")
 
-	# Siempre aplicar dirección
+	# Always apply facing direction
 	sprite.flip_h = not facing_right
