@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dcg8nymon8sc"]
+
+[ext_resource type="Script" uid="uid://nxpiss2fl8gx" path="res://home/home.gd" id="1_2lk2h"]
+[ext_resource type="Texture2D" uid="uid://dioio68dtaa4b" path="res://resources/background/housebrickdoor.png" id="1_eg57e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lk2h"]
+size = Vector2(60, 91)
+
+[node name="Home" type="Area2D" unique_id=1384517611]
+script = ExtResource("1_2lk2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1793457348]
+position = Vector2(0.9999962, -1.0000038)
+scale = Vector2(0.7832031, 0.7832031)
+texture = ExtResource("1_eg57e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1179571918]
+position = Vector2(-82, 92.5)
+shape = SubResource("RectangleShape2D_2lk2h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

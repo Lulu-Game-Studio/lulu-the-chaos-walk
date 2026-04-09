@@ -295,9 +295,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y8pfp")
 }],
-"loop": true,
+"loop": false,
 "name": &"poop",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -384,9 +384,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oaic7"]
-radius = 26.0
-height = 90.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaic7"]
+size = Vector2(17, 74)
 
 [node name="Lulu" type="CharacterBody2D" unique_id=160753840]
 script = ExtResource("1_crp4i")
@@ -395,15 +394,18 @@ script = ExtResource("1_crp4i")
 position = Vector2(-3.8146973e-06, 3.695488e-06)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_dnarf")
-animation = &"sit"
+animation = &"poop"
 autoplay = "idle"
 frame = 9
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=42072407]
-position = Vector2(0, 9)
+position = Vector2(3, 29.5)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_oaic7")
+shape = SubResource("RectangleShape2D_oaic7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1351893354]
+limit_left = -3500
+limit_right = 5500
+limit_bottom = 1500
 position_smoothing_enabled = true

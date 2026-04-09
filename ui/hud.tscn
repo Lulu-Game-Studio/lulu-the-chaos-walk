@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://t6egqy5sb75e"]
+
+[ext_resource type="FontFile" uid="uid://c4y2y5f0n5y5v" path="res://resources/font/Minecrafter.Reg.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://dipt6nui7fpr6" path="res://ui/hud.gd" id="1_276te"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
+bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
+bg_color = Color(0.34509805, 0.16078432, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="HUD" type="CanvasLayer" unique_id=1126417554]
+script = ExtResource("1_276te")
+
+[node name="Label" type="Label" parent="." unique_id=1152075373]
+offset_left = 707.0
+offset_top = 45.0
+offset_right = -403.0
+offset_bottom = 65.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 20
+text = "Poop Meter"
+horizontal_alignment = 1
+
+[node name="PoopBar" type="ProgressBar" parent="." unique_id=794431253]
+unique_name_in_owner = true
+clip_contents = true
+offset_left = 65.0
+offset_top = 65.0
+offset_right = 238.0
+offset_bottom = 92.0
+theme_override_styles/background = SubResource("StyleBoxFlat_64ctp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8sq4i")
+max_value = 45.0
+step = 0.1
+rounded = true
+show_percentage = false

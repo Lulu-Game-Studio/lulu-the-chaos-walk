@@ -2,10 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://ulnay14bafeq" path="res://map/map.tscn" id="1_71h1p"]
 [ext_resource type="PackedScene" uid="uid://cfrofnl6fqyol" path="res://player/lulu.tscn" id="2_23hpu"]
+[ext_resource type="PackedScene" uid="uid://t6egqy5sb75e" path="res://ui/hud.tscn" id="3_23hpu"]
+[ext_resource type="PackedScene" uid="uid://dcg8nymon8sc" path="res://home/home.tscn" id="4_k6hx0"]
+[ext_resource type="PackedScene" uid="uid://dxklsyckxil82" path="res://biscuit/biscuit.tscn" id="5_t7ret"]
 
 [node name="Game" type="Node2D" unique_id=1754687190]
 
 [node name="map" parent="." unique_id=2100387049 instance=ExtResource("1_71h1p")]
 
+[node name="Home" parent="." unique_id=1384517611 instance=ExtResource("4_k6hx0")]
+position = Vector2(-1990, -919)
+
 [node name="Lulu" parent="." unique_id=160753840 instance=ExtResource("2_23hpu")]
-position = Vector2(665, 365)
+position = Vector2(307, 650)
+
+[node name="HUD" parent="." unique_id=1126417554 instance=ExtResource("3_23hpu")]
+
+[node name="biscuit" parent="." unique_id=2072568431 instance=ExtResource("5_t7ret")]
+position = Vector2(2386, 349)
+
+[node name="biscuit3" parent="." unique_id=841088939 instance=ExtResource("5_t7ret")]
+position = Vector2(-1771, 496)
+
+[node name="biscuit4" parent="." unique_id=80096577 instance=ExtResource("5_t7ret")]
+position = Vector2(-2695, 293)
+
+[node name="biscuit2" parent="." unique_id=1281762627 instance=ExtResource("5_t7ret")]
+position = Vector2(5287, 578)
