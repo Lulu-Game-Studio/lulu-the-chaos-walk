@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dxklsyckxil82"]
+
+[ext_resource type="Texture2D" uid="uid://dhhjw3fehta3s" path="res://resources/biscuit/dogbiscuit.png" id="1_hden2"]
+[ext_resource type="Script" uid="uid://gcamkg1ovqlh" path="res://biscuit/biscuit.gd" id="1_isg0e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hden2"]
+radius = 8.485282
+height = 44.54773
+
+[node name="biscuit" type="Area2D" unique_id=2072568431]
+script = ExtResource("1_isg0e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733994488]
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.18359375, 0.18359375)
+texture = ExtResource("1_hden2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=279441911]
+position = Vector2(1.1920929e-07, 1.0000002)
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_hden2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

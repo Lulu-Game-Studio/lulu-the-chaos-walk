@@ -2,15 +2,23 @@ extends CharacterBody2D
 
 const SPEED = 150
 const RUN_SPEED = 250
-const JUMP_FORCE = -300
+const JUMP_FORCE = -550
 
 var is_sitting = false
 var is_transitioning = false
 var facing_right = true
 
 @onready var sprite = $AnimatedSprite2D
+var is_game_over_anim = false
+var game_over_finished = false
 
 func _physics_process(delta):
+	
+	if is_game_over_anim:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		sprite.flip_h = not facing_right
+		return
 
 	# DETECT DIRECTION
 	var direction = 0
@@ -71,6 +79,9 @@ func _physics_process(delta):
 
 	# MAIN ANIMATIONS
 	update_animation(direction, is_running)
+	
+	if position.y > 1500:
+		game_over()
 
 func update_animation(direction, is_running):
 	if not is_on_floor():
@@ -84,3 +95,20 @@ func update_animation(direction, is_running):
 
 	# Always apply facing direction
 	sprite.flip_h = not facing_right
+
+func _ready():
+	sprite.animation_finished.connect(Callable(self, "_on_animation_finished"))
+
+func play_poop_animation():
+	if is_game_over_anim or game_over_finished:
+		return
+	is_game_over_anim = true
+	sprite.play("poop")
+
+func _on_animation_finished():
+	if sprite.animation == "poop" and not game_over_finished:
+		game_over_finished = true
+		get_tree().change_scene_to_file("res://ui/gameover.tscn")
+
+func game_over():
+	get_tree().change_scene_to_file("res://ui/gameover.tscn")

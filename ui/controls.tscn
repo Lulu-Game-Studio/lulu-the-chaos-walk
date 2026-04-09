@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c7888y64mw28r"]
+
+[ext_resource type="Script" uid="uid://jg4ch6jgvpub" path="res://ui/controls.gd" id="1_3bxso"]
+[ext_resource type="Texture2D" uid="uid://b6r5ucca1p0xn" path="res://resources/menu/controls.png" id="2_3bxso"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewaii"]
+bg_color = Color(0, 0, 0, 0.8235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bxso"]
+bg_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob35n"]
+bg_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0tqn"]
+bg_color = Color(0.6862745, 0.6862745, 0.6862745, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[node name="Controls" type="Control" unique_id=491714770]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3bxso")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1909117511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3bxso")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=594394919]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.25
+offset_top = -121.75
+offset_right = 294.25
+offset_bottom = 121.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=930645089]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/line_spacing = 7
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_ewaii")
+text = "Move: A or D / Left or Right Arrow
+Jump: Space / W / Up Arrow
+Sit: S / Down Arrow
+Run: Shift + Move"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="VBoxContainer" unique_id=728643960]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_3bxso")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ob35n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0tqn")
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

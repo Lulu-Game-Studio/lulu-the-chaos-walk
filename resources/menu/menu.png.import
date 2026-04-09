@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqdcrx26086f4"
-path="res://.godot/imported/tileset_1_plataformer_itchio_jsmol.png-f01c968b1f660b371dfa3bdc0347a2ce.ctex"
+uid="uid://3721b1c3hdvd"
+path="res://.godot/imported/menu.png-41b5f6d951a531e3f6161c7cfda0d14a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/background/tileset_1_plataformer_itchio_jsmol.png"
-dest_files=["res://.godot/imported/tileset_1_plataformer_itchio_jsmol.png-f01c968b1f660b371dfa3bdc0347a2ce.ctex"]
+source_file="res://resources/menu/menu.png"
+dest_files=["res://.godot/imported/menu.png-41b5f6d951a531e3f6161c7cfda0d14a.ctex"]
 
 [params]
 

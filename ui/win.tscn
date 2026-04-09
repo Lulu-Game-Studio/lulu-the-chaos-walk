@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dlj4c1pwx1x8"]
+
+[ext_resource type="Script" uid="uid://dlig855rtlxu5" path="res://ui/win.gd" id="1_ya36f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8nvd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya36f"]
+bg_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2vi7"]
+bg_color = Color(0.6862745, 0.6862745, 0.6862745, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[node name="Win" type="Control" unique_id=160337416]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ya36f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1289001163]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3529412, 0.84705883, 0, 0.58431375)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2027150395]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -129.5
+offset_right = 336.0
+offset_bottom = 129.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1267605719]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "YOU WIN!
+Lulu didn't poop herself"
+horizontal_alignment = 1
+
+[node name="play_again" type="Button" parent="VBoxContainer" unique_id=615377989]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_g8nvd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ya36f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t2vi7")
+text = "PLAY AGAIN"
+
+[node name="menu" type="Button" parent="VBoxContainer" unique_id=1834830575]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_g8nvd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ya36f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t2vi7")
+text = "MAIN MENU"
+
+[connection signal="pressed" from="VBoxContainer/play_again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
